@@ -1,16 +1,11 @@
 export const INI = {
   parse: (s) => {
-    const ss = s.split("\n").map(s => {
-      const n = s.indexOf(";");
-      if (n >= 0) {
-        s = s.substring(0, n);
-      }
-      return s.trim();
-    }).filter(s => s);
+    const ss = s.split("\n").map(s => s.trim()).filter(s => s);
     const obj = {};
     let curobj = obj;
     for (const s of ss) {
-      if (s[0] == "[") { // section
+      if (s[0] == ";") { // comment skip
+      } else if (s[0] == "[") { // section
         const path = s.substring(1, s.indexOf("]"));
         const names = path.split("/");
         curobj = obj;

@@ -34,3 +34,4 @@ console.log(obj.a.a);
 - string as JSON string encoding
 - section name as object path
 - default section is []
+- comment line starts with ';'

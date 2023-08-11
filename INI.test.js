@@ -40,15 +40,15 @@ d=5
 k=3
 `;
   const obj = INI.parse(ini);
-  console.log(obj);
   t.assertEquals(obj, { a: { a: "3", b: { c: { d: "5" } } }, b: { k: "3" } });
-  console.log(INI.stringify(obj));
   t.assertEquals(INI.stringify(obj), ini);
 });
 
 Deno.test("comment", () => {
-  const ini = `a=3 ; comment
-b=def ; コメント
+  const ini = `a=3
+  ; comment
+b=def
+ ; コメント
 `;
   const ini2 = `a=3
 b=def
@@ -56,6 +56,14 @@ b=def
   const obj = INI.parse(ini);
   t.assertEquals(obj, { a: "3", b: "def" });
   t.assertEquals(INI.stringify(obj), ini2);
+});
+
+Deno.test("inline comment is not supported", () => {
+  const ini = `a=3 ; comment
+`;
+  const obj = INI.parse(ini);
+  t.assertEquals(obj, { a: "3 ; comment" });
+  t.assertEquals(INI.stringify(obj), ini);
 });
 
 Deno.test("escape as JSON string", () => {
