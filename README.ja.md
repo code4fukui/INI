@@ -1,11 +1,11 @@
 # INI - ユーザーフレンドリーなデータ表現
 
-INI.jsはINIテキストファイル形式の実装です。
+INI.jsは、INIテキストファイル形式の実装です。INIは人間が読み書きしやすいデータ表現形式です。
 
 ## 使い方
 
-- INI.stringify
-- INI.parse
+- `INI.stringify`関数は、JavaScriptオブジェクトをINI形式の文字列に変換します。
+- `INI.parse`関数は、INI形式の文字列をJavaScriptオブジェクトに変換します。
 
 ```js
 import { INI } from "https://code4fukui.github.io/INI/INI.js";
@@ -20,21 +20,13 @@ b=123
 console.log(obj2);
 ```
 
-```js
-import { INI } from "https://code4fukui.github.io/INI/INI.js";
-
-const obj = INI.parse(await Deno.readTextFile("test.ini"));
-console.log(obj);
-console.log(obj.a.a);
-```
-
 ## 仕様
 
-- 値は文字列（数値は文字列に変換されます）
-- 文字列はJSON文字列エンコーディングでエスケープされます
-- セクション名はオブジェクトのパスになります
-- デフォルトのセクションは[]
-- コメント行は";"から始まります
+- 値は文字列で表現され、数値は文字列に変換されます。
+- 文字列はJSON文字列エンコーディングでエスケープされます。
+- セクション名はオブジェクトのパスとして使用されます。
+- デフォルトのセクション名は`[]`です。
+- コメント行は`;`から始まります。
 
 ## ライセンス
 

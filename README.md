@@ -1,4 +1,6 @@
-# INI - human friendly data encoding
+# INI - Human-friendly data encoding
+
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
 
 INI.js is an implementation of the INI text file format.
 
@@ -28,7 +30,7 @@ console.log(obj);
 console.log(obj.a.a);
 ```
 
-## Spec
+## Specification
 
 - Values support strings (numbers will be converted to strings)
 - Strings are encoded as JSON strings
