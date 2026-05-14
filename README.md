@@ -1,11 +1,15 @@
-# INI - human friendly data encoding
+# INI - Human-friendly data encoding
 
-INI.js is an implementation of INI text file format.
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
+INI.js is an implementation of the INI text file format.
 
 ## Usage
 
-- INI.stringify
-- INI.parse
+The library provides two main functions:
+
+- `INI.stringify`: Converts a JavaScript object to an INI format string.
+- `INI.parse`: Parses an INI format string and returns a JavaScript object.
 
 ```js
 import { INI } from "https://code4fukui.github.io/INI/INI.js";
@@ -28,10 +32,14 @@ console.log(obj);
 console.log(obj.a.a);
 ```
 
-## Spec
+## Specification
 
-- value supports string (number will convert to string)
-- string as JSON string encoding
-- section name as object path
-- default section is []
-- comment line starts with ';'
+- Values are stored as strings (numbers are converted to strings)
+- Strings are encoded as JSON strings
+- Section names are used as object paths
+- The default section is `[]`
+- Comment lines start with `;`
+
+## License
+
+MIT License — see [LICENSE](LICENSE).
